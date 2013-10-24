@@ -18,4 +18,4 @@ def secure_token
   end
 end
 
-StudyChapter3::Application.config.secret_token = secure_token
+StudyChapter3::Application.config.secret_key_base = secure_token
