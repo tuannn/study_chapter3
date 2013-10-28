@@ -9,10 +9,25 @@
     <%= render 'layouts/shim' %>
   </head>
   <body>
+    <!-- include header to page -->
     <%= render 'layouts/header' %>
     <div class="container">
+	
+	  <!-- add flash -->
+	  <% flash.each do |key, value| %>
+        <!-- <div class="alert alert-<%= key %>"><%= value %></div>-->
+		
+		<%= content_tag(:div, value, class: "alert alert-#{key}") %>
+      <% end %>
+	  
+	  <!-- include body to page -->
       <%= yield %>
+	  
+	  <!-- include footer to page -->
 	  <%= render 'layouts/footer' %>
+	  
+	  <!-- Show debug console -->
+	  <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>

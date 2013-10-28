@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   validates	:password,	presence: true, length: { minimum: 6 } #validate for password
   validates	:password_confirmation,	presence: true, length: { minimum: 6 } #validate for password_confirmation
   
-  #validates(:name, presence:true)
+  # Check after validates:
+  after_validation { self.errors.messages.delete(:password_digest) }
   
 end
