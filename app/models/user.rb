@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   
   # Validate email is unique before save to database
   before_save { |user| user.email = email.downcase }
+  before_save :create_remember_token
   
   # Validate for Model
   validates :name, 	presence: true, length: { maximum: 50} # validate for name
@@ -15,5 +16,12 @@ class User < ActiveRecord::Base
   
   # Check after validates:
   after_validation { self.errors.messages.delete(:password_digest) }
+  
+  # Create remember token for user
+  private
+
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
   
 end

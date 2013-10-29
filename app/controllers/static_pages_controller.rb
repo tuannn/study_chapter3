@@ -10,4 +10,8 @@ class StaticPagesController < ApplicationController
   
   def contact
   end
+  
+  def signin
+    @user = User.new
+  end
 end
