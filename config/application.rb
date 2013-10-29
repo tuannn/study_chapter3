@@ -61,5 +61,7 @@ module StudyChapter3
 	
 	# Config for bootstrap-sass
 	config.assets.precompile += %w(*.png, *.jpg, *.jpeg, *.gif)
+	
+	config.active_record.whitelist_attributes = true
   end
 end

@@ -13,6 +13,7 @@ StudyChapter3::Application.routes.draw do
   # define for resource
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

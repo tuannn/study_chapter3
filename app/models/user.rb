@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
   has_secure_password
+  has_many :microposts, dependent: :destroy
   # Define email gerular express  
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -17,11 +18,17 @@ class User < ActiveRecord::Base
   # Check after validates:
   after_validation { self.errors.messages.delete(:password_digest) }
   
+  def feed
+    # This is preliminary. See "Following users" for the full implementation.
+    Micropost.where("user_id = ?", id)
+  end
   # Create remember token for user
   private
 
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end
+	
+	
   
 end
