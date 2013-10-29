@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
 	  #login sucessfully and redirect to show user page
 	  sign_in user
 	  #flash[:success] = #"Welcome: " + #{user.name}#
-	  redirect_to user
+	  #redirect_to user
+	  redirect_back_or user
 	else
       # Create an error message and re-render the signin form.
 	  flash.now[:error] = "Email/Password is invalid"
