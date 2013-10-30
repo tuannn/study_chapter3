@@ -5,4 +5,18 @@
     | <%= link_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
   <% end %>
+  
+  <% if !current_user?(user) && !current_user.friend?(user)%>
+    <% if !current_user.send_request?(user) %>
+	  <% if user.send_request?(current_user)%>
+        | <%= link_to 'friend: accept', friend_path(:friend_id=> user.id) %>
+      <% else %>
+      | <%= link_to 'friend: make', friend_path(:friend_id=> user.id) %>
+	  <% end %>
+    <% else %>
+      | friend: requested 
+    <% end %>
+  <% else %>
+  | my friend
+  <% end %>
 </li>

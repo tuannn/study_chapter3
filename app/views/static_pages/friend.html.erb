@@ -1,0 +1,41 @@
+<h3>My Friend pages</h3><br>
+<% if @users_requested %>
+<h4>Waiting accept from:</h4><br>
+<ul class="users">
+  <% @users_requested.each do |user| %>
+    <% if !user.send_request?(current_user)%>
+      <li>
+		<%= render user %>
+      </li>
+	<% end %>  
+  <% end %>
+</ul>
+  <% end %>
+  
+  
+<% if @users_from %>
+<h4>Please accept below request:  </h4><br>
+<ul class="users">
+  <% @users_from.each do |user| %>
+    <% if !current_user.send_request?(user)%>
+    <li>
+	  <%= render user %>
+    </li>
+	<% end %>
+  <% end %>
+</ul>
+<% end %>
+
+<% if @users_requested %>
+<h4>My Friend: </h4><br>
+<ul class="users">
+  <% @users_requested.each do |user| %>
+    <% if user.send_request?(current_user)%>
+      <li>
+		<%= render user %>
+      </li>
+	<% end %>  
+  <% end %>
+</ul>
+
+<% end %>

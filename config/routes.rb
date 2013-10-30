@@ -9,16 +9,18 @@ StudyChapter3::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   #match '/edit', to:'users#edit'
-  
+  match '/search', to: 'static_pages#search'
+  match '/friend', to: 'static_pages#friend'
   # define for resource
-  resources :users do
+  resources :users, shallow: true do
     member do
-	  get :following, :followers
+	  get :following, :followers, :requested_to
 	end
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

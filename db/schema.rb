@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131029094120) do
+ActiveRecord::Schema.define(:version => 20131030033927) do
+
+  create_table "friends", :force => true do |t|
+    t.integer  "request_from_id"
+    t.integer  "request_to_id"
+    t.boolean  "status"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "friends", ["request_from_id", "request_to_id"], :name => "index_friends_on_request_from_id_and_request_to_id", :unique => true
+  add_index "friends", ["request_from_id"], :name => "index_friends_on_request_from_id"
+  add_index "friends", ["request_to_id"], :name => "index_friends_on_request_to_id"
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
