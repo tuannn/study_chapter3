@@ -1,0 +1,20 @@
+vn:
+  # Header menu resource
+  menu_home: "Trang chủ"
+  menu_help: "Giúp đỡ"
+  menu_signin: "Đăng nhập"
+  menu_signout: "Đăng xuất"
+  menu_users: "Người dùng"
+  menu_search: "Tìm kiếm"
+  menu_friend: "Bạn bè"
+  menu_account: "Tài khoản"
+  menu_profile: "Thông tin cá nhân"
+  menu_settings: "Thiết lập"
+  menu_welcome: "Xin chào: %{user_name}"
+  
+  # Help page resource
+  help_title: "Giúp đỡ"
+  help_description_1: "Tìm giúp đỡ từ tài liệu học Ruby on Rails: "
+  help_url_description_1: "Rails Tutorial help page"
+  help_description_2: "Tìm giúp đỡ trên ứng dụng này: "
+  help_url_description_2: "Rails Tutorial book"

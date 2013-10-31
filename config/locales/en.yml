@@ -2,4 +2,38 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  # Header menu resource
+  menu_home: "Home"
+  menu_help: "Help"
+  menu_signin: "Sign in"
+  menu_signout: "Sign out"
+  menu_users: "Users"
+  menu_search: "Search"
+  menu_friend: "My friends"
+  menu_account: "Accounts"
+  menu_profile: "Profile"
+  menu_settings: "Settings"
+  menu_welcome: "Welcome to: %{user_name}"
+  
+  # Help page resource
+  help_title: "Help"
+  help_description_1: "Get help on the Ruby on Rails Tutorial at the"
+  help_url_description_1: "Rails Tutorial help page"
+  help_description_2: "To get help on this sample app, see the"
+  help_url_description_2: "Rails Tutorial book"
+  
+  # About pages
+  about_title: "About us"
+  about_description_1: "is a project to make a book and screencasts to teach web development"
+  about_url_description_1: "Ruby on Rails Tutorial"
+  about_description_2: "This is the sample application for the tutorial."
+  about_url_description_2: "Ruby on Rails"
+
+  # Contact pages
+  contact_title: "Contact"
+  contact_description: "Contact Ruby on Rails Tutorial about the sample app at the"
+  contact_url_description: "contact page"
+  
+  # Friend pages
+  friend_wait: "Waiting accept from:"
+  

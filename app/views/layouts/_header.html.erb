@@ -4,36 +4,37 @@
       <%= link_to "sample app", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", help_path %></li>
+          <li><%= link_to t(:menu_home), root_path %></li>
+          <li><%= link_to t(:menu_help), help_path %></li>
 		  <% if signed_in? %>
 		  <li id="fat-menu" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Users <b class="caret"></b>
+              <%=t :menu_users %><b class="caret"></b>
             </a>
 			
 			<ul class="dropdown-menu">
-              <li><%= link_to "Search", search_path%></li>
+              <li><%= link_to t(:menu_search), search_path%></li>
 			  <li class="divider"></li>
-			  <li><%= link_to "My friends", friend_path %></li> 
+			  <li><%= link_to t(:menu_friend), friend_path %></li> 
             </ul>
 			
 		  </li>
           <li id="fat-menu" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
+              <%=t :menu_account %><b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li><%= link_to t(:menu_profile), current_user %></li>
+              <li><%= link_to t(:menu_settings), edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li>
-                <%= link_to "Sign out", signout_path, method: "delete" %>
+                <%= link_to t(:menu_signout), signout_path, method: "delete" %>
               </li>
             </ul>
           </li>
+		  <li><%= link_to t(:menu_welcome, user_name: current_user.name), user_path(current_user) %> </li>
 		  <% else %>
-          <li><%= link_to "Sign in", signin_path %></li>
+          <li><%= link_to t(:menu_signin), signin_path %></li>
 		  <% end %>
         </ul>
       </nav>
